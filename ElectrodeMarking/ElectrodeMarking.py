@@ -26,6 +26,7 @@ from slicer import vtkMRMLMarkupsLineNode
 try:
     import nibabel as nib
     print("Nibabel library was imported")
+    print("pepe")
 except ModuleNotFoundError:
     if slicer.util.confirmOkCancelDisplay("This module requires 'nibabel' Python package. Click OK to install it now."):
         slicer.util.pip_install("nibabel")
