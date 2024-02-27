@@ -24,7 +24,7 @@ from slicer import vtkMRMLSegmentationNode
 
 #
 # ElectrodeMarking sadasd
-
+print("gatoooooo")
 try:
     import nibabel as nib
     print("Nibabel library was imported y las otras")
