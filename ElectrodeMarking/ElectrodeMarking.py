@@ -554,67 +554,6 @@ class ElectrodeMarkingLogic(ScriptedLoadableModuleLogic):
         transformNode.SetMatrixTransformToParent(transform.GetMatrix())
         
         
-        #prueba cambio angulo vista rojo
-        # Definir la matriz de rotación (por ejemplo, rotación en el eje z)
-        # cos_theta = np.cos(angulo_rotacion)
-        # sin_theta = np.sin(angulo_rotacion)
-        
-        # rotation_matrix = np.array([[cos_theta, sin_theta, 0],
-        #                             [-sin_theta, cos_theta, 0],
-        #                             [0, 0, 1]])
-            
-        # rotated_coordinatesZ = np.dot(rotation_matrix, eje_rotacion)
-
-
-        # rotation_matrix = np.array([[cos_theta, 0,sin_theta],
-        #                             [0, 1, 0],
-        #                             [-sin_theta, 0,cos_theta]])
-      
-        # rotated_coordinatesI = np.dot(rotation_matrix, eje_rotacion)
-
-        # rotation_matrix = np.array([[1, 0, 0],
-        #                             [0,cos_theta,sin_theta],
-        #                             [0,-sin_theta,cos_theta]])
-            
-        # rotated_coordinatesX = np.dot(rotation_matrix, eje_rotacion)
-        
-        # print(f"pepito {eje_rotacion}")
-        
-        
-        # #prueba cambio angulo vista rojo
-
-        # sliceNode = slicer.app.layoutManager().sliceWidget("Red").mrmlSliceNode()
-        # sliceToRas = sliceNode.GetSliceToRAS()
-        # transformPrueba=vtk.vtkTransform()
-        # transformPrueba.Translate(point1)
-        # transformPrueba.RotateWXYZ(angulo_rotacion, rotated_coordinatesI)
-
-        # sliceToRas.DeepCopy(transformPrueba.GetMatrix())
-        # sliceNode.UpdateMatrices()
-        
-        
-        # sliceNode2 = slicer.app.layoutManager().sliceWidget("Green").mrmlSliceNode()
-        # sliceToRas2 = sliceNode2.GetSliceToRAS()
-        # transformPrueba2=vtk.vtkTransform()
-        # transformPrueba2.Translate(point1)
-        # transformPrueba.RotateX( rotated_coordinatesX[0])
-        # transformPrueba.RotateY( rotated_coordinatesX[1])
-        # transformPrueba.RotateZ( rotated_coordinatesX[2])
-        # sliceToRas2.DeepCopy(transformPrueba2.GetMatrix())
-        # sliceNode2.UpdateMatrices()
-        
-        
-        # sliceNode3 = slicer.app.layoutManager().sliceWidget("Yellow").mrmlSliceNode()
-        # sliceToRas3 = sliceNode3.GetSliceToRAS()
-        # transformPrueba3=vtk.vtkTransform()
-        # transformPrueba3.Translate(point1)
-        # transformPrueba3.RotateWXYZ(angulo_rotacion, rotated_coordinatesI)
-        # sliceToRas3.DeepCopy(transformPrueba3.GetMatrix())
-        # sliceNode3.UpdateMatrices()
-        
-        print("emi")
-
-        
         return transformNode
     
     
