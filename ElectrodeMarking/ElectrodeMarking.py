@@ -407,6 +407,8 @@ class ElectrodeMarkingWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
     def onLineButton(self):
 
        self.logic.agregarLineas() 
+    #    slicer.util.getNode("Referencia electrodo 1").SetDescription(f"pepe {a}")
+       
     
     #Uso 
     def onElecModelButton(self) -> None:
@@ -444,6 +446,10 @@ class ElectrodeMarkingWidget(ScriptedLoadableModuleWidget, VTKObservationMixin):
         sliceToRas.DeepCopy(transform.GetMatrix())
         sliceNode.UpdateMatrices()
         pass  
+   
+   
+   
+   
     def onModelButton2(self):
         
         '''
@@ -606,52 +612,8 @@ class ElectrodeMarkingLogic(ScriptedLoadableModuleLogic):
         # sliceToRas3.DeepCopy(transformPrueba3.GetMatrix())
         # sliceNode3.UpdateMatrices()
         
-        sliceNode = slicer.app.layoutManager().sliceWidget("Red").mrmlSliceNode()
-        sliceToRas = sliceNode.GetSliceToRAS()
-        transformPrueba=vtk.vtkTransform()
-        '''transformPrueba.Translate(point1)
-        transformPrueba.SetMatrix(sliceToRas)'''
-        transformPrueba.Translate(point1)
-        
-        angulo_rotacion2=angulo_rotacion
-        angulo_rotacion3=angulo_rotacion
+        print("emi")
 
-        angulo_rotacion+=90
-        transformPrueba.RotateWXYZ(angulo_rotacion, eje_rotacion)
-        transformPrueba.RotateZ( angulo_rotacion2)
-        sliceToRas.DeepCopy(transformPrueba.GetMatrix())
-        print(sliceToRas)
-        sliceNode.UpdateMatrices()
-
-
-        sliceNode2 = slicer.app.layoutManager().sliceWidget("Green").mrmlSliceNode()
-        sliceToRas2 = sliceNode2.GetSliceToRAS()
-        transformPrueba2=vtk.vtkTransform()
-        '''transformPrueba.Translate(point1)
-        transformPrueba.SetMatrix(sliceToRas)'''
-        transformPrueba2.Translate(point1)
-        transformPrueba2.RotateZ( angulo_rotacion2)
-        sliceToRas2.DeepCopy(transformPrueba2.GetMatrix())
-        print(sliceToRas2)
-        sliceNode2.UpdateMatrices()
-        
-        
-        sliceNode3 = slicer.app.layoutManager().sliceWidget("Yellow").mrmlSliceNode()
-        sliceToRas3 = sliceNode3.GetSliceToRAS()
-        transformPrueba3=vtk.vtkTransform()
-        '''transformPrueba.Translate(point1)
-        transformPrueba.SetMatrix(sliceToRas)'''
-        transformPrueba3.Translate(point1)
-        transformPrueba3.RotateY( angulo_rotacion3)
-        sliceToRas2.DeepCopy(transformPrueba3.GetMatrix())
-        print(sliceToRas3)
-        sliceNode3.UpdateMatrices()
-        ####
-        
-        
-        
-        
-        
         
         return transformNode
     
@@ -974,6 +936,9 @@ class ElectrodeMarkingLogic(ScriptedLoadableModuleLogic):
         slicer.util.getNode(nombre_deseado).GetDisplayNode().SetSelectedColor(1,0,0)
         slicer.util.getNode(nombre_deseado).GetDisplayNode().SetOpacity(0.75)
         slicer.util.getNode(nombre_deseado).GetDisplayNode().SetGlyphSize(1)
+        
+
+        
         # Configurar la clase de referencia para el modo de colocación
         selection_node = slicer.mrmlScene.GetNodeByID("vtkMRMLSelectionNodeSingleton")
         selection_node.SetReferenceActivePlaceNodeClassName("vtkMRMLMarkupsLineNode")
@@ -983,8 +948,8 @@ class ElectrodeMarkingLogic(ScriptedLoadableModuleLogic):
         place_mode_persistence = 0
         interaction_node.SetPlaceModePersistence(place_mode_persistence)
         interaction_node.SetCurrentInteractionMode(1)  # 1 corresponde al modo de colocación
+        
         self.elec+=1  
-   
     #Carga autoamticamente los fiduciarios de radiosensibilidad
     #En uso   
     def modelizarRs(self,markup: vtkMRMLMarkupsFiducialNode, rutaArchivo,indice):
